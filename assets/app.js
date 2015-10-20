@@ -55,7 +55,7 @@ $(function () {
         else if (!$(e.target).closest('.card')[0]) finishGame()
     }).on('click', function (e) {
         if ($('#cards').is('.playing')) checkSelectedCard($(e.target).closest('.card')[0])
-    }).on('mousedown', function (e) {
+    }).on('mousedown touchstart', function (e) {
         if ($('#cards').is('.playing')) return
 
         App.$draggedCard = $(e.target).closest('.card')
@@ -81,7 +81,7 @@ $(function () {
         })
 
         return false
-    }).on('mousemove', function (e) {
+    }).on('mousemove touchmove', function (e) {
         if (!App.$draggedCard[0]) return
 
         if (!$('#cards').is('.sorted')) showOnTop(App.$draggedCard[0])
@@ -91,7 +91,7 @@ $(function () {
             x: start.card.x + (e.pageX - start.mouse.x),
             y: start.card.y + (e.pageY - start.mouse.y),
         })
-    }).on('mouseup', function (e) {
+    }).on('mouseup touchend', function (e) {
         if (!App.$draggedCard[0]) return
 
         var start = App.$draggedCard.data('start'),
