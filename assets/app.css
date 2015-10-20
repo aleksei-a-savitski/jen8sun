@@ -1,0 +1,122 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    background: #fafafa;
+    background-size: 100px 100px;
+}
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: " ";
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+#cards {
+    width: 100%;
+    overflow: auto;
+}
+
+#cards.playing:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+#cards .card {
+    display: block;
+    position: absolute;
+    opacity: 0;
+    background-color: #fff;
+    border: 1px solid #edeeee;
+    border-radius: 3px;
+    padding: 3px;
+    box-sizing: border-box;
+}
+
+
+#cards .card img {
+    max-width: 320px;
+    max-height: 320px;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.symbol {
+    width: 100px;
+    height: 80px;
+    z-index: 99999999;
+    color: white;
+}
+
+.symbol:before,
+.symbol:after {
+    position: absolute;
+    content: "";
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    color: inherit;
+    background: currentColor;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.symbol:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin :100% 100%;
+}
+
+#heart.symbol {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(0, 0);
+}
+
+#score {
+    z-index: 99999999;
+    position: absolute;
+    width: 320px;
+    height: 60px;
+    top: 0;
+    left: 50%;
+    margin-left: -160px;
+    background: rgba(255,255,255,0.5);
+    color: red;
+}
+
+#score .symbol {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -20px 0 0 20px;
+    width: 50px;
+    height: 40px;
+    color: inherit;
+}
+
+#score .value {
+    position: absolute;
+    font-size: 38px;
+    text-align: right;
+    width: 50%;
+    top: 11px;
+}
